@@ -62,7 +62,7 @@ namespace PrimeNumbers.Views
             activityIndicator.IsVisible = true;
             activityIndicator.IsRunning = true;
 
-            Primes = await _service.GetPrimeBatchCountsAsync(nrbatches, null);
+            Primes = await _service.GetPrimeBatchCountsAsync(nrbatches, _progressReporter);
             OnPropertyChanged("Primes");
 
             activityIndicator.IsRunning = false;

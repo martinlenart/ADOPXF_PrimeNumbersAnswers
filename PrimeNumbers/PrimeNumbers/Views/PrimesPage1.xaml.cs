@@ -15,13 +15,12 @@ namespace PrimeNumbers.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PrimesPage1 : ContentPage
     {
-        public List<PrimeBatch> Primes { get; private set; }
-
-        PrimeNumberService _service = new PrimeNumberService();
+        PrimeNumberService _service;
 
         public PrimesPage1()
         {
             InitializeComponent();
+            _service = new PrimeNumberService();
         }
 
         private async void Button_Clicked(object sender, EventArgs e)

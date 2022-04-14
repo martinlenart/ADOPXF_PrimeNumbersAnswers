@@ -29,17 +29,6 @@ namespace PrimeNumbers.Views
             MainThread.BeginInvokeOnMainThread(async () => { await viewmodel.LoadPrimes(); });
         }
 
-        private async void ListView_ItemTapped(object sender, ItemTappedEventArgs e)
-        {
-            var item = (PrimeBatch)e.Item;
-            var answer = await DisplayAlert("Write to disk?",
-                $"Would you like to write the {item.NrPrimes} prime numbers to disk", "Yes", "No");
-            if (answer)
-            {
-                string path = await viewmodel.WriteAsync(item, $"Primes_from_{item.BatchStart}_to_{item.BatchEnd}.txt");
-                await DisplayAlert("Write Completed", $"Filename: {path}", "OK");
-            }
-        }
         private async void lvPrimes_ItemTapped(object sender, ItemTappedEventArgs e)
         {
             var item = (PrimeBatch)e.Item;
